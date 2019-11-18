@@ -1,6 +1,6 @@
 package cards;
 
-public class AnimalCard {
+public class AnimalCard{
 
     private final Animal animal;
 
