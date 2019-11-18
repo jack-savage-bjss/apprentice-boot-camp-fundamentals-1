@@ -1,6 +1,6 @@
 package cards;
 
-public class Card {
+public class Card implements SnappableCard {
     private String suitName;
     private String value;
 

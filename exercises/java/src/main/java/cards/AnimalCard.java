@@ -1,6 +1,6 @@
 package cards;
 
-public class AnimalCard{
+public class AnimalCard implements SnappableCard {
 
     private final Animal animal;
 
@@ -16,4 +16,5 @@ public class AnimalCard{
     public String toString() {
         return animal.toString();
     }
+
 }

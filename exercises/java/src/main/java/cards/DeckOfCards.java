@@ -1,9 +1,10 @@
 package cards;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class DeckOfCards {
+public class DeckOfCards implements SnappableDeck {
     private final List<Suit> suitList;
     private static final String[] suitNames = {"clubs", "diamonds", "hearts", "spades"};
     private final List<Card> cardsList;
@@ -56,5 +57,15 @@ public class DeckOfCards {
         for (String card : deck) {
             System.out.println(card);
         }
+    }
+
+    @Override
+    public void shuffle() {
+        Collections.shuffle(cardsList);
+    }
+
+    @Override
+    public SnappableCard deal() {
+        return cardsList.remove(0);
     }
 }
