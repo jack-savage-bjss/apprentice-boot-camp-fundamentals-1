@@ -19,7 +19,7 @@ public class DeckOfCards implements SnappableDeck {
         cardsList = getCardsAsCardList();
     }
 
-    private static List<Suit> buildDeck(String[] suitNames) {
+    private List<Suit> buildDeck(String[] suitNames) {
         List<Suit> suitList = new ArrayList<>();
         for (String suitName : suitNames) {
             Suit currentSuit = new Suit(suitName, 13);
@@ -31,11 +31,11 @@ public class DeckOfCards implements SnappableDeck {
     public List<Card> getCardsAsCardList() {
         List<Card> cardList = new ArrayList<>();
         for (Suit suit : suitList) {
-            for (Card card : cardList) {
-                cardsList.add(card);
+            for (Card card : suit.getCardsInSuit()) {
+                cardList.add(card);
             }
         }
-        return cardsList;
+        return cardList;
     }
 
     public String[] getCards() {
@@ -45,8 +45,8 @@ public class DeckOfCards implements SnappableDeck {
                 cardsAsStringArrayList.add(card.getValue() + " of " + card.getSuitName());
             }
         }
-        String[] cardsAsStringArray = new String[cardsAsStringArrayList.size()];
-        for (int i = 0; i < cardsAsStringArrayList.size(); i++) {
+        String[] cardsAsStringArray = new String[cardsList.size()];
+        for (int i = 0; i < cardsList.size(); i++) {
             cardsAsStringArray[i] = cardsAsStringArrayList.get(i);
         }
         return cardsAsStringArray;

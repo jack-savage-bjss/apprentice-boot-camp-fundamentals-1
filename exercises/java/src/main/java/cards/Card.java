@@ -19,4 +19,14 @@ public class Card implements SnappableCard {
     public String getValue() {
         return value;
     }
+
+    public boolean snap(SnappableCard otherCard) {
+        Card otherCardAsCard = (Card) otherCard;
+        return otherCard != null && (this.getValue().equals(otherCardAsCard.getValue()));
+    }
+
+    @Override
+    public String toString() {
+        return suitName + " " + value;
+    }
 }

@@ -8,8 +8,8 @@ public class AnimalCard implements SnappableCard {
         this.animal = animal;
     }
 
-    boolean snap( AnimalCard otherCard ){
-        return otherCard != null && this.animal.equals(otherCard.animal);
+    public boolean snap( SnappableCard otherCard ) {
+        return otherCard != null && this.animal.equals(((AnimalCard) otherCard).animal);
     }
 
     @Override
