@@ -7,7 +7,7 @@ import java.util.List;
 public class DeckOfCards implements SnappableDeck {
     private final List<Suit> suitList;
     private static final String[] suitNames = {"clubs", "diamonds", "hearts", "spades"};
-    private final List<Card> cardsList;
+    private final List<PlayingCard> cardsList;
 
     public static void main(String[] args) {
         DeckOfCards deckOfCards = new DeckOfCards();
@@ -28,21 +28,21 @@ public class DeckOfCards implements SnappableDeck {
         return suitList;
     }
 
-    public List<Card> getCardsAsCardList() {
-        List<Card> cardList = new ArrayList<>();
+    public List<PlayingCard> getCardsAsCardList() {
+        List<PlayingCard> playingCardList = new ArrayList<>();
         for (Suit suit : suitList) {
-            for (Card card : suit.getCardsInSuit()) {
-                cardList.add(card);
+            for (PlayingCard playingCard : suit.getCardsInSuit()) {
+                playingCardList.add(playingCard);
             }
         }
-        return cardList;
+        return playingCardList;
     }
 
     public String[] getCards() {
         List<String> cardsAsStringArrayList = new ArrayList<>();
         for (Suit suit : suitList) {
-            for (Card card : suit.getCardsInSuit()) {
-                cardsAsStringArrayList.add(card.getValue() + " of " + card.getSuitName());
+            for (PlayingCard playingCard : suit.getCardsInSuit()) {
+                cardsAsStringArrayList.add(playingCard.getValue() + " of " + playingCard.getSuitName());
             }
         }
         String[] cardsAsStringArray = new String[cardsList.size()];

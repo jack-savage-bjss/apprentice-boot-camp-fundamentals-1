@@ -1,10 +1,10 @@
 package cards;
 
-public class Card implements SnappableCard {
+public class PlayingCard implements SnappableCard {
     private String suitName;
     private String value;
 
-    public Card(String suitName) {
+    public PlayingCard(String suitName) {
         this.suitName = suitName;
     }
 
@@ -21,8 +21,8 @@ public class Card implements SnappableCard {
     }
 
     public boolean snap(SnappableCard otherCard) {
-        Card otherCardAsCard = (Card) otherCard;
-        return otherCard != null && (this.getValue().equals(otherCardAsCard.getValue()));
+        PlayingCard otherCardAsPlayingCard = (PlayingCard) otherCard;
+        return otherCard != null && (this.getValue().equals(otherCardAsPlayingCard.getValue()));
     }
 
     @Override

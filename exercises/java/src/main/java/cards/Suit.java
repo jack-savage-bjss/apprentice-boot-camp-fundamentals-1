@@ -6,9 +6,9 @@ import java.util.List;
 public class Suit {
     String suitName;
     Integer suitLength;
-    private final List<Card> cardsInSuit = new ArrayList<>();
+    private final List<PlayingCard> cardsInSuit = new ArrayList<>();
 
-    public List<Card> getCardsInSuit() {
+    public List<PlayingCard> getCardsInSuit() {
         return cardsInSuit;
     }
 
@@ -18,12 +18,12 @@ public class Suit {
         this.buildSuit();
     }
 
-    private List<Card> buildSuit() {
+    private List<PlayingCard> buildSuit() {
         for (int i = 1; i <= suitLength; i++) {
-            Card currentCard = new Card(suitName);
+            PlayingCard currentPlayingCard = new PlayingCard(suitName);
             String cardValue = determineCardValue(i);
-            currentCard.setValue(cardValue);
-            cardsInSuit.add(currentCard);
+            currentPlayingCard.setValue(cardValue);
+            cardsInSuit.add(currentPlayingCard);
         }
         return cardsInSuit;
     }
