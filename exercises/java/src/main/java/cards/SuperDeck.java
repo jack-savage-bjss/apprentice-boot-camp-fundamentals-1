@@ -8,7 +8,7 @@ public class SuperDeck implements SnappableDeck {
     private final List<SnappableDeck> decks;
     private final List<SnappableCard> cards;
 
-    public SuperDeck() {
+    SuperDeck() {
         decks = new ArrayList<>();
         decks.add(new AnimalDeck());
         decks.add(new DeckOfCards());
@@ -18,9 +18,7 @@ public class SuperDeck implements SnappableDeck {
 
     private void populateDeckWithCards() {
         for (SnappableDeck deck : decks) {
-            for(SnappableCard card : deck.getListOfCards()) {
-                cards.add(card);
-            }
+            cards.addAll(deck.getListOfCards());
         }
     }
 

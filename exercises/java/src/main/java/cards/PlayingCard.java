@@ -4,7 +4,7 @@ public class PlayingCard implements SnappableCard {
     private String suitName;
     private String value;
 
-    public PlayingCard(String suitName) {
+    PlayingCard(String suitName) {
         this.suitName = suitName;
     }
 
@@ -12,11 +12,11 @@ public class PlayingCard implements SnappableCard {
         this.value = value;
     }
 
-    public String getSuitName() {
+    String getSuitName() {
         return suitName;
     }
 
-    public String getValue() {
+    String getValue() {
         return value;
     }
 

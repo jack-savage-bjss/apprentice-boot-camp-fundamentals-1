@@ -15,25 +15,23 @@ public class DeckOfCards implements SnappableDeck {
     }
 
     public DeckOfCards() {
-        this.suitList = buildDeck(suitNames);
+        this.suitList = buildDeck();
         cardsList = getCardsAsCardList();
     }
 
-    private List<Suit> buildDeck(String[] suitNames) {
+    private List<Suit> buildDeck() {
         List<Suit> suitList = new ArrayList<>();
-        for (String suitName : suitNames) {
+        for (String suitName : DeckOfCards.suitNames) {
             Suit currentSuit = new Suit(suitName, 13);
             suitList.add(currentSuit);
         }
         return suitList;
     }
 
-    public List<SnappableCard> getCardsAsCardList() {
+    private List<SnappableCard> getCardsAsCardList() {
         List<SnappableCard> playingCardList = new ArrayList<>();
         for (Suit suit : suitList) {
-            for (SnappableCard playingCard : suit.getCardsInSuit()) {
-                playingCardList.add(playingCard);
-            }
+            playingCardList.addAll(suit.getCardsInSuit());
         }
         return playingCardList;
     }
@@ -57,7 +55,7 @@ public class DeckOfCards implements SnappableDeck {
         return cardsAsStringArray;
     }
 
-    public void printDeck() {
+    private void printDeck() {
         String[] deck = getCards();
         for (String card : deck) {
             System.out.println(card);
