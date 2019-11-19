@@ -9,6 +9,9 @@ public class AnimalCard implements SnappableCard {
     }
 
     public boolean snap( SnappableCard otherCard ) {
+        if(!(otherCard instanceof AnimalCard)) {
+            return false;
+        }
         return otherCard != null && this.animal.equals(((AnimalCard) otherCard).animal);
     }
 

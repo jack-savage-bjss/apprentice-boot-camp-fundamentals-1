@@ -4,22 +4,32 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class AnimalDeck implements SnappableDeck {
+public class SuperDeck implements SnappableDeck {
+    private final List<SnappableDeck> decks;
+    private final List<SnappableCard> cards;
 
-    private List<SnappableCard> cards;
-
-    AnimalDeck() {
+    public SuperDeck() {
+        decks = new ArrayList<>();
+        decks.add(new AnimalDeck());
+        decks.add(new DeckOfCards());
         cards = new ArrayList<>();
-        for (Animal animal : Animal.values()) {
-            cards.add(new AnimalCard(animal));
-            cards.add(new AnimalCard(animal));
+        populateDeckWithCards();
+    }
+
+    private void populateDeckWithCards() {
+        for (SnappableDeck deck : decks) {
+            for(SnappableCard card : deck.getListOfCards()) {
+                cards.add(card);
+            }
         }
     }
 
+    @Override
     public void shuffle() {
         Collections.shuffle(cards);
     }
 
+    @Override
     public String[] getCards() {
         String[] result = new String[cards.size()];
         for (int i = 0; i < cards.size(); i++) {
@@ -29,6 +39,7 @@ class AnimalDeck implements SnappableDeck {
         return result;
     }
 
+    @Override
     public SnappableCard deal() {
         return cards.remove(0);
     }

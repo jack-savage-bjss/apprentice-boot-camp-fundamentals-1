@@ -21,8 +21,11 @@ public class PlayingCard implements SnappableCard {
     }
 
     public boolean snap(SnappableCard otherCard) {
-        PlayingCard otherCardAsPlayingCard = (PlayingCard) otherCard;
-        return otherCard != null && (this.getValue().equals(otherCardAsPlayingCard.getValue()));
+        if (otherCard instanceof PlayingCard) {
+            PlayingCard otherCardAsPlayingCard = (PlayingCard) otherCard;
+            return (this.getValue().equals(otherCardAsPlayingCard.getValue()));
+        }
+        return false;
     }
 
     @Override
