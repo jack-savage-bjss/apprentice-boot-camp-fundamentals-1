@@ -3,9 +3,11 @@ package checkout;
 public class Receipt {
 
     private String text = "";
-    private int aCountdown = 3;
     private int total;
+    private int aCountdown = 3;
     private int bCountdown = 2;
+    private int cCountdown = 4;
+    private int dCountdown = 5;
 
     String text() {
         return text + "Total: " + total;
@@ -36,12 +38,29 @@ public class Receipt {
     }
 
     void scannedC() {
-        text += "C: 20\n";
-        total += 20;
+        text += "C: 20";
+        if (--cCountdown == 0) {
+            text += " - 10 (4 for 70)";
+            total += 10;
+        }
+        else {
+            total += 20;
+        }
+        text += "\n";
     }
 
     void scannedD() {
-        text += "D: 15\n";
-        total += 15;
+        text += "D: 15";
+        if (--dCountdown == 0) {
+            text += " - 15 (5 for 60)";
+        }
+        else {
+            total += 15;
+        }
+        text += "\n";
+    }
+
+    public void scannedProduct(Product scannedProduct) {
+        // Replace 'scannedA, scannedB, ...' methods here.
     }
 }
